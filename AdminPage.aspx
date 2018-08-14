@@ -126,8 +126,7 @@
         <asp:Button runat="server" ID="CommentsEdit" Text="Comments Editing" Visible="true" OnClick="btnCommentsEdit_Click" CssClass="contact-button2" /><br />
         <div id="CommentDisplay" runat="server" style="display: none; margin-top: 10px; padding-bottom: 15px; background-color: #86aca3;" class="comment-box">
         <p style="color:#2B3856; line-height:110%; padding-left:10px; padding-right:10px; font-style:italic; font-weight:500; margin-bottom:4px">Delete unwanted comments, or restore deleted comments.</p>    
-            <%--<asp:Button runat="server" ID="DeletedComments" Text="View Deleted Comments" Visible="true" OnClick="DeletedComments_Click" CssClass="contact-button" /><br />
-        --%><div id="DeletedCommentDisplay" runat="server" style="display: none; margin-top: 10px; padding-bottom: 15px; background-color: #86aca3;" class="comment-box">
+            <div id="DeletedCommentDisplay" runat="server" style="display: none; margin-top: 10px; padding-bottom: 15px; background-color: #86aca3;" class="comment-box">
             <asp:Label runat="server" ForeColor="#2d444e" Font-Bold="true">Deleted Comments</asp:Label>
             <div id="deleteMessage" runat="server" class="comment-box" style="display: none"><p>No Deleted Comments</p></div>
             <asp:Repeater ID="RepeatDelete" runat="server" OnItemCommand="RepeatDelete_ItemCommand">
@@ -147,7 +146,6 @@
             </div>
             <asp:Button runat="server" ID="DeletedComments" Text="View Deleted Comments" Visible="true" OnClick="DeletedComments_Click" CssClass="contact-button" /><br />
         
-            <%--<br />--%>
             <div runat="server" style="display: block; margin-top: 10px; padding-bottom: 15px; background-color: #86aca3;" class="comment-box">
      
             <asp:Label runat="server" ForeColor="#2d444e" Font-Bold="true">Active Comments</asp:Label>
@@ -163,7 +161,7 @@
                     </div>
                 </ItemTemplate>
             </asp:Repeater>
-            <%--<br />--%>
+
             <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:KBellString%>" SelectCommand="SELECT * FROM [tblComments] WHERE (deleted = 'false') ORDER BY ID DESC;"></asp:SqlDataSource>
             </div>
             </div>
@@ -198,8 +196,7 @@
             <asp:SqlDataSource ID="SqlDataSource5" runat="server" ConnectionString="<%$ ConnectionStrings:KBellString%>" SelectCommand="SELECT * FROM [tblSongs] WHERE (deleted = 'false') ORDER BY SONG ASC;"></asp:SqlDataSource>
             </div>
 
-            <%--<asp:Button runat="server" ID="DeletedSongs" Text="View Deleted Songs" Visible="true" OnClick="DeletedSongs_Click" CssClass="contact-button" /><br />
-        --%><div id="DeletedSongDisplay" runat="server" style="display: none; margin-top: 10px; padding-bottom: 15px; background-color: #86aca3;" class="comment-box">
+            <div id="DeletedSongDisplay" runat="server" style="display: none; margin-top: 10px; padding-bottom: 15px; background-color: #86aca3;" class="comment-box">
             <asp:Label runat="server" ForeColor="#2d444e" Font-Bold="true">Deleted Songs</asp:Label>
             <div id="deleteMessage1" runat="server" class="comment-box" style="display: none"><p>No Deleted Songs</p></div>
             <asp:Repeater ID="RepeatDelete2" runat="server" OnItemCommand="RepeatDelete2_ItemCommand">
@@ -234,8 +231,7 @@
             <asp:SqlDataSource ID="SqlDataSource7" runat="server" ConnectionString="<%$ ConnectionStrings:KBellString%>" SelectCommand="SELECT * FROM [tblChristmas] WHERE (deleted = 'false') ORDER BY CSONG ASC;"></asp:SqlDataSource>
             </div>
 
-            <%--<asp:Button runat="server" ID="DeletedChristmas" Text="View Deleted Christmas Songs" Visible="true" OnClick="DeletedChristmas_Click" CssClass="contact-button" /><br />
-        --%><div id="DeletedChristmasDisplay" runat="server" style="display: none; margin-top: 10px; padding-bottom: 15px; background-color: #86aca3;" class="comment-box">
+            <div id="DeletedChristmasDisplay" runat="server" style="display: none; margin-top: 10px; padding-bottom: 15px; background-color: #86aca3;" class="comment-box">
             <asp:Label runat="server" ForeColor="#2d444e" Font-Bold="true">Deleted Christmas Songs</asp:Label>
             <div id="deleteMessage2" runat="server" class="comment-box" style="display: none"><p>No Deleted Songs</p></div>
             <asp:Repeater ID="RepeatDelete3" runat="server" OnItemCommand="RepeatDelete3_ItemCommand">
@@ -251,9 +247,6 @@
             <asp:SqlDataSource ID="SqlDataSource9" runat="server" ConnectionString="<%$ ConnectionStrings:KBellString%>" SelectCommand="SELECT * FROM [tblChristmas] WHERE (deleted = 'true') ORDER BY ID DESC;"></asp:SqlDataSource>
             </div>
                 <asp:Button runat="server" ID="DeletedChristmas" Text="View Deleted Christmas Songs" Visible="true" OnClick="DeletedChristmas_Click" CssClass="contact-button" /><br />
-        
-            <%--<br />--%>
-
             </div>
         </div>
 
