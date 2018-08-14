@@ -104,7 +104,6 @@ namespace WebApplication1
             { SalesDisplay.Style.Add("display", "block"); }
             else if (SalesDisplay.Attributes.CssStyle.Value == "display:block;margin-top:10px;padding-bottom:15px;background-color:#86aca3;")
             { SalesDisplay.Style.Add("display", "none"); }
-            //SalesDisplay.Style.Add("display", "block");
 
             Repeat.DataSource = SqlDataSource1;            
             Repeat.DataBind();
@@ -131,7 +130,6 @@ namespace WebApplication1
             { ContactDisplay.Style.Add("display", "block"); }
             else if (ContactDisplay.Attributes.CssStyle.Value == "display:block;margin-top:10px;padding-bottom:15px;background-color:#86aca3;")
             { ContactDisplay.Style.Add("display", "none"); }
-            //SalesDisplay.Style.Add("display", "block");
 
             Repeat1.DataSource = SqlDataSource2;
             Repeat1.DataBind();
@@ -158,7 +156,6 @@ namespace WebApplication1
             { CommentDisplay.Style.Add("display", "block"); }
             else if (CommentDisplay.Attributes.CssStyle.Value == "display:block;margin-top:10px;padding-bottom:15px;background-color:#86aca3;")
             { CommentDisplay.Style.Add("display", "none"); }
-            //SalesDisplay.Style.Add("display", "block");
 
             Repeat2.DataSource = SqlDataSource3;
             Repeat2.DataBind();
@@ -177,7 +174,6 @@ namespace WebApplication1
             { DeletedCommentDisplay.Style.Add("display", "block"); }
             else if (DeletedCommentDisplay.Attributes.CssStyle.Value == "display:block;margin-top:10px;padding-bottom:15px;background-color:#86aca3;")
             { DeletedCommentDisplay.Style.Add("display", "none"); }
-            //SalesDisplay.Style.Add("display", "block");
 
             RepeatDelete.DataSource = SqlDataSource6;
             RepeatDelete.DataBind();
@@ -193,7 +189,6 @@ namespace WebApplication1
                 deleteMessage.Style.Add("display", "none");
             }
 
-            //DeletedComments.Visible = false;
             if (DeletedComments.Text == "View Deleted Comments")
             {
                 DeletedComments.Text = "Close Deleted Comments";
@@ -215,7 +210,6 @@ namespace WebApplication1
             { DeletedSongDisplay.Style.Add("display", "block"); }
             else if (DeletedSongDisplay.Attributes.CssStyle.Value == "display:block;margin-top:10px;padding-bottom:15px;background-color:#86aca3;")
             { DeletedSongDisplay.Style.Add("display", "none"); }
-            //SalesDisplay.Style.Add("display", "block");
 
             RepeatDelete2.DataSource = SqlDataSource8;
             RepeatDelete2.DataBind();
@@ -286,7 +280,6 @@ namespace WebApplication1
             { DisplayEmail.Style.Add("display", "block"); }
             else if (DisplayEmail.Attributes.CssStyle.Value == "display:block;margin-top:10px;padding-bottom:15px;background-color:#86aca3;")
             { DisplayEmail.Style.Add("display", "none"); }
-            //SalesDisplay.Style.Add("display", "block");
 
             Repeat3.DataSource = SqlDataSource4;
             Repeat3.DataBind();
@@ -330,7 +323,6 @@ namespace WebApplication1
             { DisplayAllSongs.Style.Add("display", "block"); }
             else if (DisplayAllSongs.Attributes.CssStyle.Value == "display:block;margin-top:10px;padding-bottom:15px;background-color:#86aca3;")
             { DisplayAllSongs.Style.Add("display", "none"); }
-
 
             if (btnAllSongs.Text == "View All Songs")
             {
@@ -379,7 +371,6 @@ namespace WebApplication1
             { DisplayPricing.Style.Add("display", "block"); }
             else if (DisplayPricing.Attributes.CssStyle.Value == "display:block;margin-top:10px;padding-bottom:15px;background-color:#86aca3;")
             { DisplayPricing.Style.Add("display", "none"); }
-            //SalesDisplay.Style.Add("display", "block");
 
             RepeatPrice.DataSource = SqlDataSourcePrice;
             RepeatPrice.DataBind();
@@ -505,20 +496,9 @@ namespace WebApplication1
 
         public void ConnectEmail(string MainEmail, string Password, string CopyEmail, string CopyEmail2)
         {
-            //MainEmail = tbGmail.Text;
-            //Password = tbPassword.Text;
-            //CopyEmail = tbSend.Text;
-            //CopyEmail2 = tbCopy.Text;
-
             Database db = new Database("KBellString");
-
-            //db.Command.CommandType = CommandType.StoredProcedure;
-            //db.Command.CommandText = "tblEmailDelete";
-
-            //db.ExecuteNonQuery();
             db.Command.CommandType = CommandType.StoredProcedure;
             db.Command.CommandText = "tblEmailLoginGETALL";
-
 
             DataTable dt = db.ExecuteQuery();
             if (dt.Rows.Count >= 0)
@@ -714,7 +694,6 @@ namespace WebApplication1
             {
                 idCount = dt.Rows.Count + 1;
                 idCount = idCount + idCountDelete;
-
             }
 
             db.Command.CommandType = CommandType.StoredProcedure;
@@ -760,7 +739,6 @@ namespace WebApplication1
             {
                 idCount = dt.Rows.Count + 1;
                 idCount = idCount + idCountDelete;
-
             }
 
             db.Command.CommandType = CommandType.StoredProcedure;
@@ -802,16 +780,7 @@ namespace WebApplication1
 
     protected void EmailInfo_Click(object sender, EventArgs e)
     {
-        //if (tbGmail.Text != string.Empty)
-        //{
-        //    if (tbPassword.Text != string.Empty)
-        //    {
-        //        if (tbCopy.Text != string.Empty)
-        //        {
-                    ConnectEmail(MainEmail, Password, CopyEmail, CopyEmail2);
-        //        }
-        //    }
-        //}
+        ConnectEmail(MainEmail, Password, CopyEmail, CopyEmail2);
     }
 
     protected void UpdateLoginInfo_Click(object sender, EventArgs e)
@@ -846,7 +815,6 @@ namespace WebApplication1
 
         db.Command.CommandType = CommandType.StoredProcedure;
         db.Command.CommandText = "tblSalesDelete";
-        //db.Command.Parameters.Remove("Sale");
 
         db.ExecuteNonQuery();
 
@@ -864,7 +832,6 @@ namespace WebApplication1
 
         db.Command.CommandType = CommandType.StoredProcedure;
         db.Command.CommandText = "tblContactDelete";
-        //db.Command.Parameters.Remove("Sale");
 
         db.ExecuteNonQuery();
 
@@ -875,64 +842,7 @@ namespace WebApplication1
         ContactDisplay.ID.Contains("emptyMessage2");
         emptyMessage2.Style.Add("display", "block");
     }
-
-    protected void deleteComment_Click(object sender, RepeaterCommandEventArgs e)
-    {
-        
-
-        //string Comment1 = string.Empty;
-        //string Name1 = string.Empty;
-        //string Location1 = string.Empty;
-        //int ID1 = 0;
-        //string Deleted1 = string.Empty;
-
-        //Database db1 = new Database("KBellString");
-
-        //db1.Command.CommandType = CommandType.StoredProcedure;
-        //db1.Command.CommandText = "tblCommentsGETALL";
-
-        //DataTable dt = db1.ExecuteQuery();
-        //if (dt.Rows.Count >= 0)
-        //{
-        //    DataRow dr = dt.Rows[0];
-        //    Comment = dr["comment"].ToString();
-        //    Name = dr["name"].ToString();
-        //    Location = dr["location"].ToString();
-        //    Deleted = dr["deleted"].ToString();
-        //    ID = (int)dr["ID"];
-
-        //    if(ID.ToString() == e.CommandArgument.ToString())
-        //    {
-        //        Comment1 = Comment.ToString();
-        //        Name1 = dr["name"].ToString();
-        //        Location1 = dr["location"].ToString();
-        //        Deleted1 = dr["deleted"].ToString();
-        //        ID1 = (int)dr["ID"];
-        //    }
-        //}
-
-        //Deleted1 = "true";
-
-        //Database db = new Database("KBellString");
-
-        //db.Command.CommandType = CommandType.StoredProcedure;
-        //db.Command.CommandText = "tblCommentDelete";
-        //db.Command.Parameters.AddWithValue("ID", (int)ID1);
-        //db.Command.Parameters.AddWithValue("comment", Comment1.ToString());
-        //db.Command.Parameters.AddWithValue("name", Name1.ToString());
-        //db.Command.Parameters.AddWithValue("location", Location1.ToString());
-        //db.Command.Parameters.AddWithValue("deleted", Deleted1);
-        ////db.Command.Parameters.AddWithValue("deleted", Deleted);
-
-        //db.ExecuteNonQuery();
-
-        //Repeat2.DataSource = null;
-        //Repeat2.DataSource = SqlDataSource3;
-        //Repeat2.DataBind();
-
-        //MessageBox.Show("Comment Deleted");
-    }
-
+    
     protected void Repeat2_ItemCommand(object source, RepeaterCommandEventArgs e)
     {
         if(e.CommandName == "deleteCom")
@@ -974,10 +884,6 @@ namespace WebApplication1
                         db1.Command.CommandType = CommandType.StoredProcedure;
                         db1.Command.CommandText = "tblCommentDelete";
                         db1.Command.Parameters.AddWithValue("ID", (int)ID1);
-                        //db.Command.Parameters.AddWithValue("comment", Comment1.ToString());
-                        //db.Command.Parameters.AddWithValue("name", Name1.ToString());
-                        //db.Command.Parameters.AddWithValue("location", Location1.ToString());
-                        //db.Command.Parameters.AddWithValue("deleted", Deleted1);
 
                         db1.ExecuteNonQuery();
                     }
@@ -1051,10 +957,6 @@ namespace WebApplication1
                         db1.Command.CommandType = CommandType.StoredProcedure;
                         db1.Command.CommandText = "tblCommentRestore";
                         db1.Command.Parameters.AddWithValue("ID", (int)ID1);
-                        //db.Command.Parameters.AddWithValue("comment", Comment1.ToString());
-                        //db.Command.Parameters.AddWithValue("name", Name1.ToString());
-                        //db.Command.Parameters.AddWithValue("location", Location1.ToString());
-                        //db.Command.Parameters.AddWithValue("deleted", Deleted1);
 
                         db1.ExecuteNonQuery();
                     }
@@ -1348,21 +1250,5 @@ namespace WebApplication1
             }
         }
     }
-
-    
-
-    
-
-    //protected void cancelSales_Click(object sender, EventArgs e)
-    //{
-    //    try
-    //    {
-    //        SalesDisplay.Style.Add("display", "none");
-    //    }
-    //    catch
-    //    {
-    //        SalesDisplay.Style.Add("display","none");
-    //    }
-    //}
 }
 }
